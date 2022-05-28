@@ -23,7 +23,7 @@ export const NewComicForm = (props) => {
 
     return(
         <div>
-            <h4>Add a new room</h4>
+            <h4>Add a new story</h4>
             <form onSubmit={}>
                 <input
                     type='text'

@@ -19,7 +19,7 @@ class ComicsAPI {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(comic)
+                body: JSON.stringify(comics)
             });
             return await resp.json();
         } catch(e){

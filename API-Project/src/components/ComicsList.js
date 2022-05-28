@@ -1,6 +1,6 @@
 import React from "react";
 import { Comics } from './Comic';
-import { comicAPI } from '../rest/ComicsAPI.js';
+import { comicsAPI } from '../rest/ComicsAPI.js';
 import { async } from "jshint/src/prod-params";
 
 export default class ComicsList extends React.Component {
@@ -18,7 +18,7 @@ export default class ComicsList extends React.Component {
     };
 
     updateComic = async(updatedComic) => {
-        await housesAPI.put(updatedComic);
+        await comicsAPI.put(updatedComic);
         this.fetchComics();
     }
 
