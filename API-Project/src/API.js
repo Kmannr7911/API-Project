@@ -1,4 +1,4 @@
-const url = 'https://crudcrud.com/api/1a404ad7b7414b2d927bfd0ab5151ba3';
+const url = 'https://crudcrud.com/api/1a404ad7b7414b2d927bfd0ab5151ba3/comics';
 // Marvel Comics is an object representing Comics data
 export async function updateComic(comic) {
     await fetch(`${url}/${comic._id}`, {
@@ -11,14 +11,21 @@ export async function updateComic(comic) {
 }
 
 export async function createComic(comic) {
-   await fetch(`${url}`, {
+    console.log('comic to create', JSON.stringify(comic))
+    try {
+   const response = await fetch(`${url}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(comic)
     });
-   }
+    const data = response.json();
+    console.log('create data', data);
+    } catch (err) {
+        console.log(`error when creating comic: ${err}`)
+    }
+}
    
    export async function deleteComic(comic) {
        await fetch( `${url}/${comic._id}`, {
