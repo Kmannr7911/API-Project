@@ -1,36 +1,27 @@
-const url = 'https://crudcrud.com/api/7fc3e65760214ada9d75cd58022fb8de';
+const url = 'https://crudcrud.com/api/1a404ad7b7414b2d927bfd0ab5151ba3';
 // Marvel Comics is an object representing Comics data
-export async function updateComicsList(comics) {
-    return fetch(`${url}/${comics.id}`, {
-        method: 'PUT',
-        body: JSON.stringify(comics)
+export async function updateComic(comic) {
+    await fetch(`${url}/${comic._id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(comic)
     })
 }
 
-export async function createComicStory(comic, story) {
- // use fetch to call `url` endpoint
-// fetch comic
-// push to comic.story with `story` parameter
-// update comic resource
-}
-
-export async function deleteComicStory(comic) {
-    // update Comic with the new comic.story array
-    // this is not actually a delete operation
-    
-}
-
 export async function createComic(comic) {
-    // use fetch to call `url` endpoint
-   fetch(`${url}/comics`, {
+   await fetch(`${url}`, {
         method: 'POST',
-        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(comic)
     });
    }
    
    export async function deleteComic(comic) {
-       fetch( `${url}/${comic.id}`, {
+       await fetch( `${url}/${comic._id}`, {
            method: 'DELETE',
            HEADERS: {
                'Content-Type' : 'application/json'
@@ -40,10 +31,8 @@ export async function createComic(comic) {
 
 export async function getComics() {
     // use fetch to GET from `url` endpoint
-    fetch ( `${url}/comics`, {
-        method: 'GET'
-
-    });
+    const data = await fetch(`${url}`);
+    return data.json();
 }
 
 // the API file that exports all the fetch calls

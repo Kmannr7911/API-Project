@@ -29,7 +29,6 @@
 // export default App;
 
 import React , { Component } from 'react';
-import { updateComicsList } from './API';
 import './App.css';
 // import { Comic } from './components/Comics';
 
@@ -110,30 +109,13 @@ import './App.css';
 //     body: JSON.stringify(comic)
 //   });
 // }
-import { getComics, createComic } from './API';
+import ComicsList from './components/ComicsList';
 
 class App extends Component {
-  state = {
-    comics: []
-  };
-
-  getComics = async () => {
-    const comics = await getComics();
-    this.setState({ comics });
-  }
-
-  createComic = async () => {
-    const newComic = await createComic({ name: 'Superman', stories: [] });
-    console.log('res', newComic.json());
-    // this.setState({ })
-  }
-
   render() {
-    getComics();
-    createComic();
     return(
       <div>
-        { console.log('hi', this.state.comics)}
+        <ComicsList/>
       </div>
     )
   }
