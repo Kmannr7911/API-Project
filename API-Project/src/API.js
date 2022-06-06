@@ -1,5 +1,5 @@
-const url = 'https://crudcrud.com/api/1a404ad7b7414b2d927bfd0ab5151ba3/comics';
-// Marvel Comics is an object representing Comics data
+const url = 'https://crudcrud.com/api/ed7cd3867c8547928eb2c629ce50824e/comics';
+
 export async function updateComic(comic) {
     await fetch(`${url}/${comic._id}`, {
         method: 'POST',
@@ -41,7 +41,3 @@ export async function getComics() {
     const data = await fetch(`${url}`);
     return data.json();
 }
-
-// the API file that exports all the fetch calls
-// App.js to render components
-// the components that will have forms and buttons to pass in the data to fetch
