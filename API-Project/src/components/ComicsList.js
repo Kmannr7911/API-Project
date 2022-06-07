@@ -28,6 +28,7 @@ export default class ComicsList extends React.Component {
     }
 
     updateComic = async(comic) => {
+        console.log('update', comic);
         await updateComic(comic);
         this.fetchComics();
     }
