@@ -46,7 +46,7 @@ export default class ComicsList extends React.Component {
                 </input>
             </form>
             <button type='submit'
-                onClick={() => this.createComic({ title: this.state.newTitle })}>
+                onClick={() => this.createComic({ title: this.state.newTitle, issues: [] })}>
                 Create Comic
             </button>
             <div className = "comics-list">
