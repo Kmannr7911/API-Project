@@ -1,4 +1,4 @@
-const url = 'https://crudcrud.com/api/8c32eb7b1d6b499caaee877b27501705/comics';
+const url = 'https://crudcrud.com/api/84f69d10e027471d964a64cda39bcb8b/comics';
 
 export async function updateComic(comic) {
     await fetch(`${url}/${comic._id}`, {
