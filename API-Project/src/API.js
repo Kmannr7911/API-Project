@@ -1,4 +1,4 @@
-const url = 'https://crudcrud.com/api/84f69d10e027471d964a64cda39bcb8b/comics';
+const url = 'https://crudcrud.com/api/f3c33c54191f4a91bfec92c44311783c/comic';
 
 export async function updateComic(comic) {
     await fetch(`${url}/${comic._id}`, {
@@ -27,8 +27,8 @@ export async function createComic(comic) {
     }
 }
    
-   export async function deleteComic(comic) {
-       await fetch( `${url}/${comic._id}`, {
+   export async function deleteComic(id) {
+       await fetch( `${url}/${id}`, {
            method: 'DELETE',
            HEADERS: {
                'Content-Type' : 'application/json'

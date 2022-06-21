@@ -1,9 +1,10 @@
 import React from "react";
-import { createComic, getComics, updateComic } from "../API";
+import { createComic, getComics, updateComic, deleteComic } from "../API";
+import Comic from "./Comic";
 
 export default class ComicsList extends React.Component {
     state = {
-        comics: [],
+        comics: [ ],
         newTitle: ''
     };
 
@@ -14,6 +15,7 @@ export default class ComicsList extends React.Component {
     fetchComics = async () => {
         const comics = await getComics();
         this.setState({ comics });
+        // this.state.comics.setState({comics});
     };
 
     createComic = async(comic) => {
@@ -24,6 +26,11 @@ export default class ComicsList extends React.Component {
     updateComic = async(comic) => {
         console.log('update', comic);
         await updateComic(comic);
+        this.fetchComics();
+    }
+
+    deleteComic = async(id) => {
+        await deleteComic(id)
         this.fetchComics();
     }
 
@@ -40,20 +47,25 @@ export default class ComicsList extends React.Component {
                     value={ this.state.newTitle }>
                 </input>
           
-            <button type='submit'
+            <button type='update'
                 onClick={() => this.createComic({ title: this.state.newTitle})}>
-                Submit
+                update
             </button>
             <div className = "comics-list">
                 {this.state.comics.map((comic) => {
                     return (
-                        <p>
-                            {comic.title}
-                        </p>)
+                        <Comic comic = {comic}/>
+                    )
+
+                
+                
                 })}              
             </div>
             </form>
+            
             </div>
         );
     }
 }
+
+//how does the data get displayed if the set.state is present?

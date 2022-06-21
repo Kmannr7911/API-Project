@@ -11,11 +11,24 @@ export default class Comic extends React.Component {
    //Look at Past JS Projects
    
     render() {
+        console.log(this.comic)
         return (
-                return React.createElement('comic', {class: 'btn-btn-primary'}, 'Delete')    
-                        <p>
-                            {this.comic.title}
-                        </p>
-                        );
-    }
+            <>
+            <p>
+            {this.comic.title}
+        </p>
+                    <div className="button-container" 
+                    onClick={() => this.deleteComic({ id: this.state.id})}>
+                        <button type="Delete"
+                        >delete</button>
+                        </div>    
+                        </>
+        );
+     }
+
 }
+
+//1) Add Delete Button on Line 21
+//2) Figure out how to make Delete Button
+//3)Watch Promineo Vids, Look at Videos
+//4) How can I access the _id from crudcrud when you store it as my object? I can store the id but I am not able to do any other functions besides displaying it because I can't access the id. 
